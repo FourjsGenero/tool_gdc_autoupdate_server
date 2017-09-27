@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceViewState version="1.0">
+  <ExpandedNodes>
+    <Node path="gdc_auto_update.4pw" type="pm/main-project"/>
+    <Node path="gdc_auto_update.4pw/Group" type="pm/group"/>
+    <Node path="gdc_auto_update.4pw/Group/Application" type="pm/application"/>
+  </ExpandedNodes>
+  <OpenDocuments>
+    <Document container="true" filePath="main.4gl" locator="36:29" module="mod-ce3">
+      <Data name="8" value="CP1252"/>
+    </Document>
+  </OpenDocuments>
+  <CurrentDocument filePath="main.4gl" module="mod-ce3"/>
+</WorkspaceViewState>
