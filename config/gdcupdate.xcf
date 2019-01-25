@@ -1,0 +1,9 @@
+<APPLICATION Parent="defaultwa">
+  <EXECUTION>
+    <PATH>$(res.deployment.path)/.</PATH>
+    <MODULE>gdcupdate.42r</MODULE>
+    <PARAMETERS>
+      <PARAMETER>$(res.deployment.path)/update</PARAMETER>
+    </PARAMETERS>
+  </EXECUTION>
+</APPLICATION>
