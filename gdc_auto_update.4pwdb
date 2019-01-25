@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<WorkspaceDatabase fileContentsEncoding="CP1252" version="2.0">
-<File m="main" n="main.4gl" ts="20170926175254098">
-<Fct c="10" el="205" l="198" n="waitWindow()" t="F"/>
-<Fct c="10" el="195" l="150" n="executeUpdate(osAcro STRING)" t="F">
-<Call c="25" l="153" n="getClientPath" t="F"/>
-<Call c="29" l="156" n="getServerArchive" t="F"/>
-<Call c="29" l="166" n="getServerArchive" t="F"/>
-<Call c="29" l="176" n="getServerArchive" t="F"/>
-<Call c="29" l="182" n="getServerArchive" t="F"/>
-<Call c="29" l="188" n="getServerArchive" t="F"/>
+<WorkspaceDatabase fileContentsEncoding="UTF-8" version="2.0">
+<File m="main" n="main.4gl" s="3" ts="20190125121005927">
+<Fct c="10" el="222" l="215" n="waitWindow()" t="F" v="pub"/>
+<Fct c="10" el="212" l="167" n="executeUpdate(osAcro STRING)" t="F" v="pub">
+<Call c="25" l="170" n="getClientPath" t="F"/>
+<Call c="29" l="173" n="getServerArchive" t="F"/>
+<Call c="29" l="183" n="getServerArchive" t="F"/>
+<Call c="29" l="193" n="getServerArchive" t="F"/>
+<Call c="29" l="199" n="getServerArchive" t="F"/>
+<Call c="29" l="205" n="getServerArchive" t="F"/>
 </Fct>
-<Fct c="10" el="146" l="58" n="getGdcVersion()" t="F">
-<Call c="28" l="99" n="getServerArchive" t="F"/>
-<Call c="22" l="137" n="waitWindow" t="F"/>
-<Call c="22" l="138" n="executeUpdate" t="F"/>
+<Fct c="10" el="163" l="75" n="getGdcVersion()" t="F" v="pub">
+<Call c="28" l="116" n="getServerArchive" t="F"/>
+<Call c="22" l="154" n="waitWindow" t="F"/>
+<Call c="22" l="155" n="executeUpdate" t="F"/>
 </Fct>
-<Fct c="10" el="54" l="48" n="getClientPath()" t="F"/>
-<Fct c="10" el="44" l="18" n="getServerArchive(osAcro STRING)" t="F"/>
-<Fct c="1" el="15" l="6" n="main()" t="F">
+<Fct c="10" el="71" l="65" n="getClientPath()" t="F" v="pub"/>
+<Fct c="10" el="61" l="18" n="getServerArchive(osAcro STRING)" t="F" v="pub"/>
+<Fct c="1" el="15" l="6" n="main()" t="F" v="pub">
 <Call c="6" l="13" n="getGdcVersion" t="F"/>
 </Fct>
-<Bug l="8" t="with spaces in paths, we&apos;re using a hardcoded directory in place of value returned by datadirectory frontcall&#13;"/>
 </File>
 </WorkspaceDatabase>

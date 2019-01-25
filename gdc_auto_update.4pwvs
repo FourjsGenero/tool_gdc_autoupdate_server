@@ -4,11 +4,24 @@
     <Node path="gdc_auto_update.4pw" type="pm/main-project"/>
     <Node path="gdc_auto_update.4pw/Group" type="pm/group"/>
     <Node path="gdc_auto_update.4pw/Group/Application" type="pm/application"/>
+    <Node path="gdc_auto_update.4pw/Group/Config" type="pm/library"/>
+    <Node path="gdc_auto_update.4pw/Group/Ressource" type="pm/library"/>
+    <Node path="gdc_auto_update.4pw/Package" type="pm/group"/>
+    <Node path="gdc_auto_update.4pw/Package/gdcupdate" type="pm/package"/>
   </ExpandedNodes>
   <OpenDocuments>
-    <Document container="true" filePath="main.4gl" locator="36:29" module="mod-ce3">
+    <Document container="true" filePath="main.4gl" locator="81:16" module="mod-ce3">
       <Data name="8" value="CP1252"/>
     </Document>
+    <Document container="true" filePath="config/gdcupdate.xcf" locator="4:22" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+    <Document container="true" filePath="config/MANIFEST" locator="2:30" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+    <Document container="true" filePath="noupdate.per" locator="1:1" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
   </OpenDocuments>
-  <CurrentDocument filePath="main.4gl" module="mod-ce3"/>
+  <CurrentDocument filePath="config/gdcupdate.xcf" module="mod-ce3"/>
 </WorkspaceViewState>
