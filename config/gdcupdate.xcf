@@ -1,4 +1,4 @@
-l<APPLICATION Parent="defaultwa">
+<APPLICATION Parent="defaultwa">
   <EXECUTION>
     <PATH>$(res.deployment.path)/.</PATH>
     <MODULE>gdcupdate.42r</MODULE>

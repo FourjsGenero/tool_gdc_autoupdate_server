@@ -73,8 +73,8 @@ END FUNCTION
 
 #Main function that retrieves the GDC client version and compare it to the server version
 FUNCTION getGdcVersion ()
-    DEFINE gdcVersion, gdcVersionBuildString, gdcVersionBranchString, gdcOs, gdcServerArchive, gdcServerArchivePart1, gdcServerArchivePart2, msg STRING
-    DEFINE gdcVersionBuild, gdcServerArchiveBuild INTEGER
+    DEFINE gdcVersion, gdcVersionBuildString, gdcVersionBranchString, gdcOs, gdcServerArchive, gdcServerArchivePart1, gdcServerArchivePart2, gdcVersionConcatenate, gdcServerArchiveConcatenate, msg STRING
+    DEFINE gdcVersionTotal, gdcServerArchiveTotal BIGINT
     DEFINE gdcVersionBranch DECIMAL (3,2)
     DEFINE gdcInstallPath STRING
  
@@ -104,7 +104,7 @@ FUNCTION getGdcVersion ()
     END IF
 
     #retrieve the build
-    LET gdcVersionBuildString = gdcVersion.subString(9,14)
+    LET gdcVersionBuildString = gdcVersion.subString(9,20)
 
     #get OS
     CALL ui.Interface.frontCall("standard", "feInfo", ["target"], [gdcOs])
@@ -117,20 +117,26 @@ FUNCTION getGdcVersion ()
     LET gdcServerArchive = os.Path.baseName (gdcServerArchive)
     
     LET gdcServerArchivePart1 = gdcServerArchive.subString (9,15)
-    LET gdcServerArchivePart2 = gdcServerArchive.subString (22,27)
+    LET gdcServerArchivePart2 = gdcServerArchive.subString (22,33)
 
     LET gdcServerArchive =  gdcServerArchivePart1, "-",  gdcServerArchivePart2
 
     DISPLAY "Client version which is installed is ", gdcVersion 
     DISPLAY "Server version which gonna be installed is ", gdcServerArchive
 
-    #Convert substrings of builds to integers
-    LET gdcVersionBuild = gdcVersionBuildString
-    LET gdcServerArchiveBuild = gdcServerArchivePart2
+    #Concatenate build to get a total to compare versions 
+    LET gdcVersionConcatenate = gdcVersion.substring(1,1),  gdcVersion.substring(3,4), gdcVersion.substring(6,7), gdcVersion.substring(9,20)
+    LET gdcServerArchiveConcatenate = gdcServerArchive.substring(1,1),  gdcServerArchive.substring(3,4), gdcServerArchive.substring(6,7), gdcServerArchive.substring(9,20)
+    DISPLAY "Client total is ", gdcVersionConcatenate
+    DISPLAY  "Server total is ", gdcServerArchiveConcatenate
+    
+    #Convert concatenation to integers
+    LET gdcVersionTotal = gdcVersionConcatenate
+    LET gdcServerArchiveTotal = gdcServerArchiveConcatenate
 
     #Compare the client version and the server version and do action accordingly
     --if client version is more recent, no need to update
-    IF gdcVersionBuild >= gdcServerArchiveBuild THEN 
+    IF gdcVersionTotal >= gdcServerArchiveTotal THEN 
         LET msg = "You're using GDC ", gdcVersion, ", this version is up to date"
         CLOSE WINDOW SCREEN
         OPEN WINDOW w WITH FORM "noupdate"
@@ -176,8 +182,8 @@ CASE osAcro
    -- CALL ui.Interface.frontCall("standard", "execute", ["cmd /C rd /S /Q " || clientWindowsPath, TRUE], [ret])
    -- CALL ui.Interface.frontCall("standard", "execute", ["cmd /C md " || clientWindowsPath, TRUE], [ret])
     
-    CALL FGL_PUTFILE(serverSideArchive, clientSideArchive)
-    CALL ui.Interface.frontCall("monitor", "update", [clientSideArchive], [res])
+    CALL FGL_PUTFILE(serverSideArchive, clientSideArchive)                    
+    CALL ui.Interface.frontCall("monitor", "update", [clientSideArchive, "warning text to display"], [res])
 
     WHEN "w64"
     LET serverSideArchive = getServerArchive ("w64")
